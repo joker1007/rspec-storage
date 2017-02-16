@@ -1,8 +1,6 @@
-# Rspec::Storage
+# rspec-storage
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/rspec/storage`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+RSpec output test report to any stroage
 
 ## Installation
 
@@ -20,9 +18,18 @@ Or install it yourself as:
 
     $ gem install rspec-storage
 
+# Support Storages
+
+- S3 (s3://)
+- GCS (gs://)
+
 ## Usage
 
-TODO: Write usage instructions here
+```
+$ rspec -r rspec/storage spec/example_spec.rb -f doc -f json s3://your-bucket/spec_result.json
+```
+
+You need to require `rspec/storage` before rspec init process
 
 ## Development
 
@@ -32,7 +39,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/rspec-storage.
+Bug reports and pull requests are welcome on GitHub at https://github.com/joker1007/rspec-storage.
 
 
 ## License
