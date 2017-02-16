@@ -23,6 +23,16 @@ Or install it yourself as:
 - S3 (s3://)
 - GCS (gs://)
 
+# Environment Variables
+
+- S3
+  - AWS_ACCESS_KEY_ID
+  - AWS_SECRET_ACCESS_KEY
+  - AWS_REGION
+
+- GCS
+  - GOOGLE_APPLICATION_CREDENTIALS
+
 ## Usage
 
 ```
