@@ -41,6 +41,20 @@ $ rspec -r rspec/storage spec/example_spec.rb -f doc -f json s3://your-bucket/sp
 
 You need to require `rspec/storage` before rspec init process
 
+## With webmock
+
+If you use webmock, you may need to add snippet to spec_helper as workaround.
+
+```ruby
+RSpec.configure do |config|
+# ...
+
+  config.after :suite do
+    WebMock.allow_net_connect!
+  end
+end
+```
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
