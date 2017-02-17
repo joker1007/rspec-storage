@@ -1,6 +1,5 @@
 require "rspec/core/formatters"
-require "rspec/core/formatters/base_formatter"
-require "rspec/core/formatters/base_text_formatter"
+require "rspec/core/reporter"
 require "uri"
 
 module RSpec
@@ -21,7 +20,20 @@ module RSpec
         end
       end
     end
+
+    module ReporterExtension
+      def close
+        super
+        registered_listeners(:close).each do |formatter|
+          output = formatter.output
+          if output.respond_to?(:close) && output.respond_to?(:closed?)
+            output.close if !output.closed? && output != $stdout && output != $stderr
+          end
+        end
+      end
+    end
   end
 end
 
 RSpec::Core::Formatters::Loader.prepend(RSpec::Storage::FormattersLoaderExtension)
+RSpec::Core::Reporter.prepend(RSpec::Storage::ReporterExtension)
