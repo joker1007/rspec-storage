@@ -36,7 +36,7 @@ Or install it yourself as:
 ## Usage
 
 ```
-$ rspec -r rspec/storage spec/example_spec.rb -f doc -f json s3://your-bucket/spec_result.json
+$ rspec -r rspec/storage spec/example_spec.rb -f doc -f json -o s3://your-bucket/spec_result.json
 ```
 
 You need to require `rspec/storage` before rspec init process
