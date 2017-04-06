@@ -36,6 +36,9 @@ begin
             @tempfile.flush
             @tempfile.rewind
             @s3_client.put_object(bucket: @bucket, key: @key, body: @tempfile)
+            @s3_client.wait_until(:object_exists, bucket: @bucket, key: @key) do |w|
+              w.max_attempts = 5
+            end
             $stdout.puts "Upload to #{@uri.to_s}"
           ensure
             @tempfile.close
