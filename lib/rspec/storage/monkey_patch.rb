@@ -7,7 +7,15 @@ module RSpec
     class UnknownSchemeProvider < StandardError; end
 
     module FormattersLoaderExtension
-      def file_at(path)
+      private
+
+      if Gem::Version.new(RSpec::Core::Version::STRING) >= Gem::Version.new("3.6.0")
+        method_name = "open_stream"
+      else
+        method_name = "file_at"
+      end
+
+      define_method(method_name) do |path|
         uri = URI.parse(path)
         if uri.scheme
           if provider = RSpec::Storage.providers[uri.scheme]
@@ -16,7 +24,7 @@ module RSpec
             raise UnknownSchemeProvider
           end
         else
-          super
+          super(path)
         end
       end
     end
@@ -26,9 +34,8 @@ module RSpec
         super
         registered_listeners(:close).each do |formatter|
           output = formatter.output
-          if output.respond_to?(:close) && output.respond_to?(:closed?)
-            output.close if !output.closed? && output != $stdout && output != $stderr
-          end
+          next unless output.is_a?(FakeIO)
+          output.close unless output.closed?
         end
       end
     end

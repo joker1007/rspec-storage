@@ -5,7 +5,7 @@ require 'rspec/storage/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "rspec-storage"
-  spec.version       = Rspec::Storage::VERSION
+  spec.version       = RSpec::Storage::VERSION
   spec.authors       = ["joker1007"]
   spec.email         = ["kakyoin.hierophant@gmail.com"]
 
@@ -28,4 +28,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "bundler", "~> 1.13"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "rspec", "~> 3.0"
+  spec.add_development_dependency "appraisal", ">= 2.2.0"
 end
