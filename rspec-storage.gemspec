@@ -5,7 +5,7 @@ require 'rspec/storage/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "rspec-storage"
-  spec.version       = Rspec::Storage::VERSION
+  spec.version       = RSpec::Storage::VERSION
   spec.authors       = ["joker1007"]
   spec.email         = ["kakyoin.hierophant@gmail.com"]
 

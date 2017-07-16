@@ -1,8 +1,8 @@
 require "spec_helper"
 
-describe Rspec::Storage do
+describe RSpec::Storage do
   it "has a version number" do
-    expect(Rspec::Storage::VERSION).not_to be nil
+    expect(RSpec::Storage::VERSION).not_to be nil
   end
 
   context "with s3 scheme" do
