@@ -2,4 +2,7 @@ sudo: false
 language: ruby
 rvm:
   - 2.4.0
-before_install: gem install bundler -v 1.13.7
+before_install: gem install bundler -v 1.15.1
+gemfile:
+  - gemfiles/rspec_core_3.3.gemfile
+  - gemfiles/rspec_core_3.6.gemfile
