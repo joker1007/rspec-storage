@@ -1,6 +1,6 @@
 begin
 
-  require "aws-sdk"
+  require "aws-sdk-s3"
   require "tempfile"
   require "delegate"
 
