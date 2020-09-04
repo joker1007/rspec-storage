@@ -1,6 +1,6 @@
 # rspec-storage
 
-RSpec output test report to any stroage
+RSpec output test report to any storage
 
 ## Installation
 
